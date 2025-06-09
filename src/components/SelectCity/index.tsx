@@ -1,15 +1,15 @@
-import './styles.css';
-import { useEffect, useState } from 'react';
+import "./styles.css";
+import { useEffect, useState } from "react";
 
-import { Input } from '../Input';
-import { getCityByNameService } from '../../services/getCityByNameService';
+import { Input } from "../Input";
+import { getCityByNameService } from "../../services/getCityByNameService";
 
 export function SelectCity({ onSelect }) {
   const [city, setCity] = useState();
-  const [search, setSearch] = useState('');
+  const [search, setSearch] = useState("");
   const [isLoading, setIsLoading] = useState(false);
 
-  async function getCities(name) {
+  async function getCities(name: string) {
     setIsLoading(true);
 
     const response = await getCityByNameService(name);
@@ -35,14 +35,13 @@ export function SelectCity({ onSelect }) {
         onChange={(e) => setSearch(e.target.value)}
       />
 
-      <div className='select-list'>
-        {
-          city &&
+      <div className="select-list">
+        {city && (
           <button type="button" key={city.id} onClick={() => onSelect(city)}>
             <p>{city.name}</p>
           </button>
-        }
+        )}
       </div>
     </div>
-  )
+  );
 }
