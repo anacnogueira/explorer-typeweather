@@ -7,7 +7,10 @@ import {
   CityProps,
 } from "../../services/getCityByNameService";
 
-export function SelectCity({ onSelect }) {
+interface Props {
+  onSelect: (item: CityProps) => void;
+}
+export function SelectCity({ onSelect }: Props) {
   const [city, setCity] = useState<CityProps | null>();
   const [search, setSearch] = useState("");
   const [isLoading, setIsLoading] = useState(false);
