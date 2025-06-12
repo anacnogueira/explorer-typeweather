@@ -3,6 +3,7 @@ import dayjs from "dayjs";
 import { api } from "./api";
 import { getNextDays } from "../utils/getNextDays";
 import { weatherIcons, WeatherIconsKeysProps } from "../utils/weatherIcons";
+import { NextDaysItemProps } from "../components/NextDaysItem";
 
 interface GetWeatherByCityProps {
   latitude: number;
@@ -56,8 +57,8 @@ export async function getWeatherByCity({
   };
 
   const days = getNextDays();
-  const daysAdded = [];
-  const nextDays = [];
+  const daysAdded: string[] = [];
+  const nextDays: NextDaysItemProps[] = [];
 
   data.list.forEach((item) => {
     const day = dayjs(new Date(item.dt_txt)).format("DD/MM");
