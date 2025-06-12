@@ -9,6 +9,7 @@ interface GetWeatherByCityProps {
   longitude: number;
 }
 
+type WeatherIconsKeysProps = "Clouds" | "Rain" | "Clear" | "Snow";
 export interface WeatherApiResponseProps {
   list: {
     dt_txt: string;
@@ -25,11 +26,12 @@ export interface WeatherApiResponseProps {
       speed: number;
     };
     weather: {
-      main: "Clouds" | "Rain" | "Clear" | "Snow";
+      main: WeatherIconsKeysProps;
       description: string;
     }[];
   }[];
 }
+
 export async function getWeatherByCity({
   latitude,
   longitude,
