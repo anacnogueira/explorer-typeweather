@@ -1,21 +1,21 @@
-import bgCloudyDay from '../assets/img/bg_cloudy_day.png';
-import bgCloudyNight from '../assets/img/bg_cloudy_night.png';
-import iconCloudyDay from '../assets/svg/cloudy_day.svg';
-import iconCloudyNight from '../assets/svg/cloudy_night.svg';
+import bgCloudyDay from "../assets/img/bg_cloudy_day.png";
+import bgCloudyNight from "../assets/img/bg_cloudy_night.png";
+import iconCloudyDay from "../assets/svg/cloudy_day.svg";
+import iconCloudyNight from "../assets/svg/cloudy_night.svg";
 
-import iconRainDay from '../assets/svg/rain_moment_day.svg';
-import bgRainDay from '../assets/img/bg_rain_day.png';
-import bgRainNight from '../assets/img/bg_rain_night.png';
+import iconRainDay from "../assets/svg/rain_moment_day.svg";
+import bgRainDay from "../assets/img/bg_rain_day.png";
+import bgRainNight from "../assets/img/bg_rain_night.png";
 
-import iconClearDay from '../assets/svg/clear_day.svg';
-import iconClearNight from '../assets/svg/clear_night.svg';
-import bgClearDay from '../assets/img/bg_clear_day.png';
-import bgClearNight from '../assets/img/bg_clear_night.png';
+import iconClearDay from "../assets/svg/clear_day.svg";
+import iconClearNight from "../assets/svg/clear_night.svg";
+import bgClearDay from "../assets/img/bg_clear_day.png";
+import bgClearNight from "../assets/img/bg_clear_night.png";
 
-import iconSnowDay from '../assets/svg/snow_day.svg';
-import iconSnowNight from '../assets/svg/snow_night.svg';
-import bgSnowDay from '../assets/img/bg_snow_day.png';
-import bgSnowNight from '../assets/img/bg_snow_night.png';
+import iconSnowDay from "../assets/svg/snow_day.svg";
+import iconSnowNight from "../assets/svg/snow_night.svg";
+import bgSnowDay from "../assets/img/bg_snow_day.png";
+import bgSnowNight from "../assets/img/bg_snow_night.png";
 
 export const weatherIcons = {
   Clouds: {
@@ -46,4 +46,6 @@ export const weatherIcons = {
     icon_day: iconSnowDay,
     icon_night: iconSnowNight,
   },
-}
+};
+
+export type WeatherIconsKeysProps = keyof typeof weatherIcons;
