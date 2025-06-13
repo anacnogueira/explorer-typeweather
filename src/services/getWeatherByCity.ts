@@ -32,6 +32,14 @@ export interface WeatherApiResponseProps {
   }[];
 }
 
+export interface WeatherResponseProps {
+  temp: number;
+  temp_min: number;
+  temp_max: number;
+  description: string;
+  details: (typeof weatherIcons)["Clear"];
+}
+
 export async function getWeatherByCity({
   latitude,
   longitude,

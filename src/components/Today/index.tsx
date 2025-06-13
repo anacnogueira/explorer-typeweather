@@ -1,25 +1,34 @@
-import './styles.css';
-import dayjs from 'dayjs';
+import "./styles.css";
+import dayjs from "dayjs";
 
-import { Logo } from '../Logo';
-import { SelectCity } from '../SelectCity';
-import { isDayTime } from '../../utils/isDayTime';
+import { Logo } from "../Logo";
+import { SelectCity } from "../SelectCity";
+import { isDayTime } from "../../utils/isDayTime";
+import { WeatherResponseProps } from "../../services/getWeatherByCity";
 
-export function Today({ city, weather, onSearchValue }) {
-  const today = dayjs(new Date()).format('dddd, DD [de] MMMM [de] YYYY');
+interface Props {
+  city: string;
+  weather: WeatherResponseProps;
+}
+
+export function Today({ city, weather, onSearchValue }: Props) {
+  const today = dayjs(new Date()).format("dddd, DD [de] MMMM [de] YYYY");
   const isDay = isDayTime();
 
   const bgImg = isDay ? weather.details.bg_day : weather.details.bg_night;
   const icon = isDay ? weather.details?.icon_day : weather.details?.icon_night;
 
   return (
-    <section className='today'>
+    <section className="today">
       <form>
         <Logo />
         <SelectCity onSelect={onSearchValue} />
       </form>
 
-      <div className='today-details' style={{ backgroundImage: `url(${bgImg})` }}>
+      <div
+        className="today-details"
+        style={{ backgroundImage: `url(${bgImg})` }}
+      >
         <header>
           <h3>{city}</h3>
           <p>{today}</p>
@@ -31,9 +40,10 @@ export function Today({ city, weather, onSearchValue }) {
         </footer>
 
         <p>
-          {weather?.temp_min}ºc / {weather?.temp_max}ºc <span>&#8226;</span> {weather.description}
+          {weather?.temp_min}ºc / {weather?.temp_max}ºc <span>&#8226;</span>{" "}
+          {weather.description}
         </p>
       </div>
     </section>
-  )
+  );
 }
