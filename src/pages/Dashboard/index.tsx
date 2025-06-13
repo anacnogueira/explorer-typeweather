@@ -1,7 +1,10 @@
 import "./styles.css";
 
 import { useEffect, useState } from "react";
-import { getWeatherByCity } from "../../services/getWeatherByCity";
+import {
+  getWeatherByCity,
+  GetWeatherByCityResponseProps,
+} from "../../services/getWeatherByCity";
 
 import { Today } from "../../components/Today";
 import { Details } from "../../components/Details";
@@ -10,7 +13,9 @@ import { NextDays } from "../../components/NextDays";
 import { CityProps } from "../../services/getCityByNameService";
 
 export function Dashboard() {
-  const [data, setData] = useState({});
+  const [data, setData] = useState<GetWeatherByCityResponseProps>(
+    {} as GetWeatherByCityResponseProps
+  );
   const [isLoading, setIsLoading] = useState(true);
   const [city, setCity] = useState<CityProps>(
     JSON.parse(localStorage.getItem("@typewheather:city") ?? "")
