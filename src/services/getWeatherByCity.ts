@@ -10,7 +10,7 @@ interface GetWeatherByCityProps {
   longitude: number;
 }
 
-export interface WeatherApiResponseProps {
+export interface WeatherAPIResponseProps {
   list: {
     dt_txt: string;
     pop: number;
@@ -62,7 +62,9 @@ export async function getWeatherByCity({
   latitude,
   longitude,
 }: GetWeatherByCityProps): Promise<GetWeatherByCityResponseProps> {
-  const { data } = await api.get(`/forecast?lat=${latitude}&lon=${longitude}`);
+  const { data } = await api.get<WeatherAPIResponseProps>(
+    `/forecast?lat=${latitude}&lon=${longitude}`
+  );
   const { main, weather, wind, pop } = data.list[0];
 
   const today: TodayProps = {
